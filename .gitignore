@@ -1,0 +1,13 @@
+# python
+venv/
+__pycache__/
+*.pyc
+
+# node / vite
+node_modules/
+dist/
+
+# variables de entorno (nunca se suben)
+.env
+.env.local
+.env.production

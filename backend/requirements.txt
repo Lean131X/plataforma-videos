@@ -1,0 +1,8 @@
+fastapi[standard]
+sqlmodel
+psycopg[binary]
+python-dotenv
+bcrypt
+pyjwt
+boto3
+python-multipart
