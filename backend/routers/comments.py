@@ -5,7 +5,7 @@ from db import SessionDep
 from models import Comment, CommentCreate, Video, User
 from security import UsuarioActual
 
-router = APIRouter(prefix="/videos/{video_id}/comments", tags=["comments"])
+router = APIRouter(prefix="/videos/{id}/comments", tags=["comments"])
 
 
 def armar_comentario(comentario: Comment, session) -> dict:
@@ -19,15 +19,15 @@ def armar_comentario(comentario: Comment, session) -> dict:
 
 
 @router.get("", summary="Listar comentarios de un video")
-def get_comments(video_id: int, session: SessionDep):
-    video = session.get(Video, video_id)
+def get_comments(id: int, session: SessionDep):
+    video = session.get(Video, id)
     if not video:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
             detail="El video no fue encontrado"
         )
 
-    query = select(Comment).where(Comment.video_id == video_id).order_by(Comment.created_at)
+    query = select(Comment).where(Comment.video_id == id).order_by(Comment.created_at)
     comentarios = session.exec(query).all()
     lista = []
     for comentario in comentarios:
@@ -36,8 +36,8 @@ def get_comments(video_id: int, session: SessionDep):
 
 
 @router.post("", summary="Comentar un video")
-def create_comment(video_id: int, data: CommentCreate, session: SessionDep, usuario: UsuarioActual):
-    video = session.get(Video, video_id)
+def create_comment(id: int, data: CommentCreate, session: SessionDep, usuario: UsuarioActual):
+    video = session.get(Video, id)
     if not video:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
@@ -52,7 +52,7 @@ def create_comment(video_id: int, data: CommentCreate, session: SessionDep, usua
     nuevo = Comment(
         content=data.content,
         user_id=usuario["id"],
-        video_id=video_id
+        video_id=id
     )
     session.add(nuevo)
     session.commit()

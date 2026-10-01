@@ -96,7 +96,7 @@ plataforma-videos/
     ├── src/
     │   ├── api.js       # llamadas a la API
     │   ├── components/  # Navbar, TarjetaVideo
-    │   └── pages/       # Registro, Login, Principal, Reproductor, Perfil
+    │   └── pages/       # Acceso (registro y login), Principal, Reproductor, Perfil
     ├── package.json
     └── .env.example
 ```

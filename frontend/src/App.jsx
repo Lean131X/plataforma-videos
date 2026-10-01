@@ -1,10 +1,9 @@
 import { useState } from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Navigate } from 'react-router-dom'
 import { obtenerUsuario } from './api'
 import Navbar from './components/Navbar'
 import Principal from './pages/Principal'
-import Registro from './pages/Registro'
-import Login from './pages/Login'
+import Acceso from './pages/Acceso'
 import Reproductor from './pages/Reproductor'
 import Perfil from './pages/Perfil'
 
@@ -18,11 +17,11 @@ function App() {
       <main className="contenido">
         <Routes>
           <Route path="/" element={<Principal />} />
-          <Route path="/registro" element={<Registro />} />
-          <Route path="/login" element={<Login setUsuario={setUsuario} />} />
+          <Route path="/login" element={<Acceso setUsuario={setUsuario} />} />
           <Route path="/videos/:id" element={<Reproductor usuario={usuario} />} />
           <Route path="/perfil" element={<Perfil usuario={usuario} />} />
-          <Route path="*" element={<p className="mensaje">Pagina no encontrada</p>} />
+          {/* cualquier otra ruta vuelve a la principal */}
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </main>
     </div>

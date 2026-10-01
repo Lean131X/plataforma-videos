@@ -41,6 +41,12 @@ export async function pedir(ruta, opciones) {
   const respuesta = await fetch(API + ruta, opciones)
   const datos = await respuesta.json()
 
+  // si el token ya vencio se cierra la sesion y se manda al login
+  if (respuesta.status === 401 && token && ruta !== "/login") {
+    cerrarSesion()
+    window.location.href = "/login"
+  }
+
   if (!respuesta.ok) {
     let mensaje = "Ocurrio un error"
     if (typeof datos.detail === "string") {

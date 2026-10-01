@@ -52,7 +52,7 @@ function Reproductor({ usuario }) {
         <p className="datos-video">
           {video.user_name} · {video.views} vistas · {formatearFecha(video.created_at)}
         </p>
-        <p className="descripcion">{video.description}</p>
+        <p className="descripcion">{video.description ? video.description : "Sin descripcion"}</p>
 
         <h2>Comentarios ({comentarios.length})</h2>
         {usuario ? (

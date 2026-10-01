@@ -8,7 +8,7 @@ from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from config import JWT_SECRET
 
 ALGORITMO = "HS256"
-HORAS_VALIDEZ = 4
+HORAS_VALIDEZ = 24
 
 # esto agrega el boton "Authorize" en /docs para pegar el token
 esquema = HTTPBearer(auto_error=False)

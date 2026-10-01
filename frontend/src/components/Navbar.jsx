@@ -23,7 +23,7 @@ function Navbar({ usuario, setUsuario }) {
         ) : (
           <>
             <Link to="/login">Iniciar sesion</Link>
-            <Link to="/registro" className="boton">Registrarse</Link>
+            <Link to="/login?modo=registro" className="boton">Registrarse</Link>
           </>
         )}
       </div>

@@ -80,6 +80,29 @@ h2 {
   color: white;
 }
 
+/* pestanas de iniciar sesion / crear cuenta */
+.pestanas {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.pestana {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-bottom: 2px solid #333;
+  background-color: transparent;
+  color: #aaa;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.pestana.activa {
+  color: #f1f1f1;
+  border-bottom: 2px solid #ff4040;
+}
+
 /* formularios */
 .formulario {
   display: flex;
