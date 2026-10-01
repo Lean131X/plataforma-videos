@@ -1,0 +1,272 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #0f0f0f;
+  color: #f1f1f1;
+}
+
+a {
+  color: #3ea6ff;
+  text-decoration: none;
+}
+
+h1 {
+  font-size: 24px;
+}
+
+h2 {
+  font-size: 20px;
+}
+
+/* barra de arriba */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  background-color: #1c1c1c;
+  border-bottom: 1px solid #333;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  color: #ff4040;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.contenido {
+  padding: 24px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+/* botones */
+.boton,
+.boton-secundario,
+.boton-peligro {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.boton {
+  background-color: #ff4040;
+  color: white;
+}
+
+.boton:disabled {
+  background-color: #777;
+}
+
+.boton-secundario {
+  background-color: #333;
+  color: white;
+}
+
+.boton-peligro {
+  background-color: #8b0000;
+  color: white;
+}
+
+/* formularios */
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 400px;
+  margin: 0 auto 32px auto;
+  padding: 24px;
+  background-color: #1c1c1c;
+  border-radius: 8px;
+}
+
+.formulario-ancho {
+  max-width: 600px;
+  margin-left: 0;
+}
+
+input,
+textarea {
+  padding: 8px;
+  border: 1px solid #444;
+  border-radius: 6px;
+  background-color: #121212;
+  color: #f1f1f1;
+  font-size: 14px;
+}
+
+textarea {
+  min-height: 70px;
+}
+
+.error {
+  color: #ff6b6b;
+}
+
+.exito {
+  color: #5fd38d;
+}
+
+.mensaje {
+  color: #aaa;
+}
+
+/* grilla de videos de la principal */
+.grilla {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.tarjeta {
+  color: #f1f1f1;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.miniatura {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 8px;
+  background-color: #222;
+}
+
+.tarjeta-info h3 {
+  margin: 8px 0 4px 0;
+  font-size: 16px;
+}
+
+.tarjeta-info p {
+  margin: 2px 0;
+  color: #aaa;
+  font-size: 13px;
+}
+
+/* pagina del reproductor */
+.reproductor {
+  display: flex;
+  gap: 24px;
+}
+
+.reproductor-principal {
+  flex: 3;
+}
+
+.recomendados {
+  flex: 1;
+  min-width: 260px;
+}
+
+.video {
+  width: 100%;
+  max-height: 70vh;
+  background-color: black;
+  border-radius: 8px;
+}
+
+.datos-video {
+  color: #aaa;
+}
+
+.descripcion {
+  background-color: #1c1c1c;
+  padding: 12px;
+  border-radius: 8px;
+  white-space: pre-wrap;
+}
+
+.form-comentario {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.form-comentario input {
+  flex: 1;
+}
+
+.comentario {
+  padding: 8px 0;
+  border-bottom: 1px solid #222;
+}
+
+.comentario span {
+  color: #aaa;
+  font-size: 13px;
+}
+
+.comentario p {
+  margin: 4px 0;
+}
+
+/* perfil */
+.perfil-info {
+  margin-bottom: 24px;
+}
+
+.perfil-info p {
+  color: #aaa;
+}
+
+.mi-video {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+  padding: 12px;
+  background-color: #1c1c1c;
+  border-radius: 8px;
+}
+
+.miniatura-chica {
+  width: 200px;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.mi-video-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.mi-video-info h3 {
+  margin: 0;
+}
+
+.mi-video-info p {
+  margin: 0;
+  color: #aaa;
+}
+
+.botones {
+  display: flex;
+  gap: 8px;
+}
+
+/* en celular el reproductor va en una sola columna */
+@media (max-width: 800px) {
+  .reproductor {
+    flex-direction: column;
+  }
+  .mi-video {
+    flex-direction: column;
+  }
+  .miniatura-chica {
+    width: 100%;
+  }
+}
